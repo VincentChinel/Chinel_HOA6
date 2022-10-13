@@ -23,6 +23,15 @@
   become: true
   tasks:
 
+  - name: Copy default Html File For Site
+    tags: apache, apache2, httpd
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+
   - name: Install Apache and PHP for Ubuntu Servers
     tags: apache,apache2,ubuntu
     apt:
